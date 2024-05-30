@@ -1,0 +1,13 @@
+<%= form_with model: Item.new, url: items_path, local: true do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :tag %>
+    <%= f.text_field :description %>
+  </div>
+
+  <%= f.submit "Submit item" %>
+<% end %>

@@ -1,1 +1,26 @@
-<h1>Hello Demo</h1>
+
+<div class="row">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Category</th>
+        <th scope="col">Author</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Collection.find_each do |collection| %>
+        
+          <tr>
+            <td><%= collection.name %></td>
+            <td><%= collection.description %></td>
+            <td><%= collection.category %></td>
+            <td><%= collection.user.email %></td>
+            <td><%= link_to 'Show', collection_path(collection) %></td>
+          </tr>
+        
+      <% end %>
+    </tbody>
+  </table>
+</div>
