@@ -1,0 +1,17 @@
+<h1>New Item</h1>
+
+<div class="row">
+  <%= form_with model: [Collection.new, Item.new], url: collection_items_path, local: true do |f| %>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div>
+      <%= f.label :tag %>
+      <%= f.text_field :tag %>
+    </div>
+
+    <%= f.submit "Submit collection" %>
+  <% end %>
+</div>

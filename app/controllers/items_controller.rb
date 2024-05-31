@@ -3,12 +3,12 @@ class ItemsController < ApplicationController
   before_action :set_collection!
 
   def new
-    @item = Item.new(item_params.merge(user: current_user))
+    # @item = Item.new(item_params.merge(user: current_user))
   end
 
   def create
-    @item = Item.new(item_params.merge(user: current_user, @collection))
-    # @item = @collection.items.build
+    @item = Item.new(item_params.merge(user: current_user))
+    # @item = @collection.items.build(item_params.merge(user: current_user))
 
     if @item.save
       redirect_to collection_path(@collection)
