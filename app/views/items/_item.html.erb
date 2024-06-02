@@ -1,0 +1,11 @@
+<div class="item-<%= item.id %> container"
+      style="border: 1px solid black; padding: 1em; margin: 1em;">
+
+      <% if current_user == item.user %>
+        <div class="btn-group float-end">
+          <%= button_to "Delete", [collection, item], class: "btn btn-danger", method: :delete %>
+        </div>
+      <% end %>
+      <hr />
+      <%= item.name %>
+</div>
