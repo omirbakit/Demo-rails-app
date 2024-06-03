@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <% Collection.find_each do |collection| %>
+      <% Collection.order(created_at: :desc).each do |collection| %>
         
           <tr>
             <td><%= collection.name %></td>
