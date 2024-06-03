@@ -2,17 +2,9 @@
   <h3><%= @collection.name %> -> Items </h3>
 </div>
 
-<div class="container">
-  <%= render 'items/form', collection: @collection %>
-  <% @items.each do |item| %>
-    <%= render 'items/item', collection: @collection, item: item %>
-  <% end %>
-
-</div>
-
 <% if current_user %>
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <h1><%= link_to 'Add Item', new_collection_item_path(@collection), class: 'btn btn-primary' %></h1>
+    <h1><%= link_to 'New Item', new_collection_item_path(@collection), class: 'btn btn-primary' %></h1>
   </div>
 <% end %>
 
