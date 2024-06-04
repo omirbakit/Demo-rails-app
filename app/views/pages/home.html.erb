@@ -1,5 +1,8 @@
+<div class="row mt-3">
+  <h2>Last added Collections</h2>
+</div>
 
-<div class="row mt-5">
+<div class="row mt-2">
   <table class="table table-hover">
     <thead>
       <tr>
@@ -7,17 +10,45 @@
         <th scope="col">Description</th>
         <th scope="col">Category</th>
         <th scope="col">Author</th>
+        <th scope="col"> </th>
       </tr>
     </thead>
     <tbody>
-      <% Collection.order(created_at: :desc).each do |collection| %>
+      <% Collection.last(6).reverse.each do |collection| %>
         
           <tr>
             <td><%= collection.name %></td>
             <td><%= collection.description %></td>
             <td><%= collection.category %></td>
             <td><%= collection.user.email %></td>
-            <td><%= link_to 'Show', collection_path(collection), class: 'btn btn-primary' %></td>
+            <td><%= link_to 'Show', collection_path(collection), class: 'btn btn-primary', style: '--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;' %></td>
+          </tr>
+        
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="row mt-3">
+  <h2>Last added Items</h2>
+</div>
+
+<div class="row mt-1 mb-5">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Tag</th>
+        <th scope="col">Created</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Item.last(6).reverse.each do |item| %>
+        
+          <tr>
+            <td><%= item.name %></td>
+            <td><%= item.tag %></td>
+            <td><%= item.created_at.strftime("%d %b %Y %H:%M") %></td>
           </tr>
         
       <% end %>

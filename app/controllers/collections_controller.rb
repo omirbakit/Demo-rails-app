@@ -19,6 +19,7 @@ class CollectionsController < ApplicationController
 
   def show
     @collection = Collection.find(params[:id])
+    @item = Item.find_by id: params[:created_at]
     # @user = User.find_by id: params[:id]
     # @collection.user = current_user
     # @collection.update(views: @collection.views + 1)

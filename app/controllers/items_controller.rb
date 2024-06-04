@@ -34,6 +34,21 @@ class ItemsController < ApplicationController
     redirect_to collection_path(@collection)
   end
 
+  # def show
+  #   @collection = Collection.find(params[:collection_id])
+  #   @item = @collection.items.find(params[:id])
+  #   # @user = User.find_by id: params[:id]
+  #   # @collection.user = current_user
+  #   # @collection.update(views: @collection.views + 1)
+
+  #   @items = @collection.items
+  # end
+
+  # def index
+  #   @collection = Collection.find(params[:collection_id])
+  #   @item = @collection.items.find(params[:id])
+  # end
+
   # def create
   #   @item = Item.new(item_params.merge(user: current_user))
   #   # @item = @collection.items.build(item_params.merge(user: current_user))
