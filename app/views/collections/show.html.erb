@@ -23,7 +23,11 @@
           <tr>
             <td><%= item.name %></td>
             <td><%= item.tag %></td>
-            <td><%= item.created_at %></td>       
+            <td><%= item.created_at %></td>
+            <td><% if user_signed_in? && current_user == item.user %>
+            
+              <%= link_to "Delete", collection_path(item), class: "btn btn-danger", data: {"turbo-method": :delete} %>
+          <% end %></td>
           </tr>
         
       <% end %>

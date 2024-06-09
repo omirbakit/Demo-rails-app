@@ -5,4 +5,6 @@ class Collection < ApplicationRecord
   validates :description, presence: true
   validates :category, presence: true
   validates :user_id, presence: true
+
+  has_many :items, dependent: :destroy
 end

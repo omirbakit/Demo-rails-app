@@ -4,6 +4,11 @@ class ItemsController < ApplicationController
   # before_action :authenticate_admin!, only: [:admin]
   # before_action :set_collection!
 
+  def index
+    @collection = Collection.find(params[:collection_id])
+    @item = @collection.items
+  end
+
   def new
     @collection = Collection.find(params[:collection_id])
     # @items = @collection.items.new(item_params)
@@ -31,7 +36,17 @@ class ItemsController < ApplicationController
     @collection = Collection.find(params[:collection_id])
     @item = @collection.items.find(params[:id])
     @item.destroy
-    redirect_to collection_path(@collection)
+    redirect_to collection_items_path(@collection)
+  end
+
+  def show
+    @collection = Collection.find(params[:id])
+    @item = Item.find_by id: params[:id]
+    # @user = User.find_by id: params[:id]
+    # @collection.user = current_user
+    # @collection.update(views: @collection.views + 1)
+    @item = @collection.items.build
+    @items = @collection.items
   end
 
   # def show
