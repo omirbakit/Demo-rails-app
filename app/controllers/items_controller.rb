@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
 
     if @item.save
       flash[:notice] = "item has been created"
-      redirect_to collection_path(@collection)
+      redirect_to collection_items_path(@collection)
     else
       flash[:notice] = "item has not been created"
       redirect_to collection_path(@collection)

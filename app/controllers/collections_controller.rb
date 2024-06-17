@@ -23,13 +23,14 @@ class CollectionsController < ApplicationController
     # @user = User.find_by id: params[:id]
     # @collection.user = current_user
     # @collection.update(views: @collection.views + 1)
-    @item = @collection.items.build
+    # @item = @collection.items.build
     @items = @collection.items
   end
 
   def index
     @collections = Collection.all.order(created_at: :desc)
   end
+
 
   # def show
   #   @collection = Collection.find_by id: params[:id]

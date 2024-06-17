@@ -1,5 +1,5 @@
 <div class="container py-5" style="max-width: 540px">
-  <h2>New Item</h2>
+  <h2>New Item for <%= @collection.name %></h2>
   
   <%= form_with(model: [collection, collection.items.build]) do |f| %>
     <div>
@@ -12,7 +12,9 @@
       <%= f.text_field :tag, class: "form-control" %>
     </div>
 
-    <%= f.submit "Submit item", class: "btn btn-primary rounded-pill" %>
+    <div class="mt-2">
+      <%= f.submit "Submit item", class: "btn btn-primary rounded-pill" %>
+    </div>
   <% end %>
 </div>
 

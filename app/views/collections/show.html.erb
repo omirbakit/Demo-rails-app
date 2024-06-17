@@ -1,15 +1,12 @@
 <div class="row mt-5">
-  <h3><%= @collection.name %> -> Items </h3>
+  <h3><%= @collection.name %></h3>
+  <h5>Author: <%= @collection.user.email %></h5>
+  <hr />
+  <h3> Items </h3>
 </div>
 
-<% if current_user %>
-  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <h1><%= link_to 'New Item', new_collection_item_path(@collection), class: 'btn btn-primary' %></h1>
-  </div>
-<% end %>
-
-<div class="row mt-5 mb-5">
-  <table class="table table-hover item-<%= @item.id %>">
+<div class="row mt-1 mb-5">
+  <table class="table table-hover">
     <thead>
       <tr>
         <th scope="col">Name</th>
@@ -24,10 +21,6 @@
             <td><%= item.name %></td>
             <td><%= item.tag %></td>
             <td><%= item.created_at %></td>
-            <td><% if user_signed_in? && current_user == item.user %>
-            
-              <%= link_to "Delete", collection_path(item), class: "btn btn-danger", data: {"turbo-method": :delete} %>
-          <% end %></td>
           </tr>
         
       <% end %>
