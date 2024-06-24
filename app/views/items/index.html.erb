@@ -16,6 +16,7 @@
         <th scope="col">Tag</th>
         <th scope="col">Created</th>
         <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -28,6 +29,10 @@
             <td><% if user_signed_in? && current_user == item.user %>
             
                 <%= link_to "Delete", collection_item_path(@collection, item), class: "btn btn-danger", style: '--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;', data: {"turbo-method": :delete} %>
+            <% end %></td>
+            <td><% if user_signed_in? && current_user == item.user %>
+                
+                <%= link_to "Edit", edit_collection_item_path(@collection, item), class: "btn btn-primary", style: '--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;' %>
             <% end %></td>
           </tr>
         

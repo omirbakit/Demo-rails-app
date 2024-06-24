@@ -32,6 +32,25 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @collection = Collection.find(params[:collection_id])
+    @item = @collection.items.find(params[:id])
+
+  end
+
+  def update
+    @collection = Collection.find(params[:collection_id])
+    @item = @collection.items.find(params[:id])
+    @item.user = current_user
+
+    if @item.update(item_params)
+      redirect_to collection_items_path(@collection)
+    else
+      redirect_to collection_path(@collection)
+    end
+
+  end
+
   def destroy
     @collection = Collection.find(params[:collection_id])
     @item = @collection.items.find(params[:id])
